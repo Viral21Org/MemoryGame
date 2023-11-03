@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div class="control-buttons">
+    <span>Start Game</span>
+  </div>
+  <div class="info-container">
+    <div class="name">
+      Hello: <span></span>
+    </div>
+    <div class="tries">
+      Wrong Tries: <span>0</span>
+    </div>
+  </div>
+  <div class="memory-game-blocks">
+    <div class="game-block" data-technology="angular">
+      <div class="face front"></div>
+      <div class="face back">
+        <img decoding="async" src="imgs/Bottle.jpg" alt="">
+      </div>
+    </div>
+    <div class="game-block" data-technology="angular">
+      <div class="face front"></div>
+      <div class="face back">
+        <img decoding="async" src="imgs/Bottle.jpg" alt="">
+      </div>
+    </div>
+    <div class="game-block" data-technology="vuejs">
+      <div class="face front"></div>
+      <div class="face back">
+        <img decoding="async" src="imgs/Box.jpg" alt="">
+      </div>
+    </div>
+    <div class="game-block" data-technology="vuejs">
+      <div class="face front"></div>
+      <div class="face back">
+        <img decoding="async" src="imgs/Box.jpg" alt="">
+      </div>
+    </div>
+    <div class="game-block" data-technology="css3">
+      <div class="face front"></div>
+      <div class="face back">
+        <img decoding="async" src="imgs/Bus 2.jpg" alt="">
+      </div>
+    </div>
+    <div class="game-block" data-technology="css3">
+      <div class="face front"></div>
+      <div class="face back">
+        <img decoding="async" src="imgs/Bus 2.jpg" alt="">
+      </div>
+    </div>
+    <div class="game-block" data-technology="github">
+      <div class="face front"></div>
+      <div class="face back">
+        <img decoding="async" src="imgs/Bus inside.jpg" alt="">
+      </div>
+    </div>
+    <div class="game-block" data-technology="github">
+      <div class="face front"></div>
+      <div class="face back">
+        <img decoding="async" src="imgs/Bus inside.jpg" alt="">
+      </div>
+    </div>
+    <div class="game-block" data-technology="gulpjs">
+      <div class="face front"></div>
+      <div class="face back">
+        <img decoding="async" src="imgs/G Icon.jpg" alt="">
+      </div>
+    </div>
+    <div class="game-block" data-technology="gulpjs">
+      <div class="face front"></div>
+      <div class="face back">
+        <img decoding="async" src="imgs/G Icon.jpg" alt="">
+      </div>
+    </div>
+    <div class="game-block" data-technology="html5">
+      <div class="face front"></div>
+      <div class="face back">
+        <img decoding="async" src="imgs/GoBus.jpg" alt="">
+      </div>
+    </div>
+    <div class="game-block" data-technology="html5">
+      <div class="face front"></div>
+      <div class="face back">
+        <img decoding="async" src="imgs/GoBus.jpg" alt="">
+      </div>
+    </div>
+  </div>
+  <audio id="success" src="audio/success.mp4" preload="auto"></audio>
+  <audio id="fail" src="audio/fail.mp4" preload="auto"></audio>
+  <script src="./js/FileSaver.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
