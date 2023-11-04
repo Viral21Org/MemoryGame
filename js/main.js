@@ -144,8 +144,8 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
       // secondBlock.classList.remove("has-match");
       // firstBlock.style.transition = ".6s ease opacity,.6s ease transform";
       // secondBlock.style.transition = ".6s ease opacity,.6s ease transform";
-      firstBlock.classList.remove("has-match");
-      secondBlock.classList.remove("has-match");
+      // firstBlock.classList.remove("has-match");
+      // secondBlock.classList.remove("has-match");
       firstBlock.style.opacity = 0;
       secondBlock.style.opacity = 0;
       firstBlock.style.transform = "scale(0)";
@@ -154,6 +154,20 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
       secondBlock.style.transition = ".6s ease opacity,.6s ease transform";
     }, 1000);
     document.getElementById("success").play();
+    let gameCounter = 0;
+    blocks.forEach((block) => {
+      console.log(gameCounter);
+      if (block.classList.contains("has-match")) {
+        gameCounter++;
+        if (gameCounter == 12) {
+          document.getElementById("FinalSuccess").play();
+          let allBlock = document.querySelector(".memory-game-blocks");
+          let Gif = document.querySelector(".success-panel");
+          allBlock.style.display = "none";
+          Gif.style.display = "block";
+        }
+      }
+    });
   } else {
     triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
 
@@ -198,3 +212,18 @@ function shuffle(array) {
   [2] Current Element = Random Element
   [3] Random Element = Get Element From Stash
 */
+const imgPaths = [
+  "../imgs/GoLimoCopy.jpg",
+  "../imgs/GoMiniCopy.jpg",
+  "../imgs/GoBusCopy.jpg",
+];
+
+let currentIndex = 0;
+function SwitchBackgroundImage() {
+  const backgroundContainer = document.querySelector(".control-buttons");
+  backgroundContainer.style.backgroundImage = `url(${imgPaths[currentIndex]})`;
+  currentIndex = (currentIndex + 1) % imgPaths.length;
+}
+setInterval(() => {
+  SwitchBackgroundImage();
+}, 2000);
