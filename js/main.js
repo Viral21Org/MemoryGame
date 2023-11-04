@@ -217,7 +217,7 @@ const imgPaths = ["GoLimoCopy.jpg", "GoMiniCopy.jpg", "GoBusCopy.jpg"];
 let currentIndex = 0;
 function SwitchBackgroundImage() {
   const backgroundContainer = document.querySelector(".control-buttons");
-  backgroundContainer.style.backgroundImage = `url(../imgs/${imgPaths[currentIndex]})`;
+  backgroundContainer.style.backgroundImage = `url(/imgs/${imgPaths[currentIndex]})`;
   currentIndex = (currentIndex + 1) % imgPaths.length;
 }
 setInterval(() => {
