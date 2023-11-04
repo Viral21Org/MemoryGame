@@ -212,16 +212,12 @@ function shuffle(array) {
   [2] Current Element = Random Element
   [3] Random Element = Get Element From Stash
 */
-const imgPaths = [
-  "../imgs/GoLimoCopy.jpg",
-  "../imgs/GoMiniCopy.jpg",
-  "../imgs/GoBusCopy.jpg",
-];
+const imgPaths = ["GoLimoCopy.jpg", "GoMiniCopy.jpg", "GoBusCopy.jpg"];
 
 let currentIndex = 0;
 function SwitchBackgroundImage() {
   const backgroundContainer = document.querySelector(".control-buttons");
-  backgroundContainer.style.backgroundImage = `url(${imgPaths[currentIndex]})`;
+  backgroundContainer.style.backgroundImage = `url(../imgs/${imgPaths[currentIndex]})`;
   currentIndex = (currentIndex + 1) % imgPaths.length;
 }
 setInterval(() => {
