@@ -165,6 +165,11 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
           let Gif = document.querySelector(".success-panel");
           allBlock.style.display = "none";
           Gif.style.display = "block";
+          var confettiSettings = { target: "my-canvas" };
+          var confetti = new ConfettiGenerator(confettiSettings);
+          confetti.render();
+          let conf=document.querySelector('#my-canvas')
+          conf.classList.add("active")
         }
       }
     });
