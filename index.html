@@ -10,7 +10,12 @@
 
 <body>
   <div class="control-buttons">
-    <span>Start Game</span>
+    <form method="POST" action="" name="submit-to-google-sheet">
+      <input class="name" type="text" placeholder="Enter your name" name="name">
+      <input class="email" type="email" placeholder="Enter your email" name="email">
+      <input class="number" type="text" placeholder="Enter your number" name="number">
+      <button id="submit" type="submit" name="myButton">Start Game</button>
+    </form>
   </div>
   <div class="info-container">
     <div class="name">
@@ -97,12 +102,23 @@
   <div class="success-panel">
     <iframe src="https://giphy.com/embed/zaqclXyLz3Uoo" width="480" height="389" frameBorder="0" class="giphy-embed"
       allowFullScreen></iframe>
-    <p><a href="https://giphy.com/gifs/zaqclXyLz3Uoo">via GIPHY</a></p>
+    <p><a href="https://giphy.com/gifs/zaqclXyLz3Uoo"></a></p>
   </div>
   <audio id="success" src="audio/success.mp3" preload="auto"></audio>
   <audio id="fail" src="audio/fail.mp3" preload="auto"></audio>
   <audio id="FinalSuccess" src="audio/FinalSuccess.mp3" preload="auto"></audio>
   <canvas id="my-canvas"></canvas>
+  <!-- <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw25P33yQ0nikZ-ydpVWQNu4TFNgr_yEPCDNk4DBOOP-UrXBpithIlUbm8dQqw84s3a/exec'
+    const form = document.forms['submit-to-google-sheet']
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script> -->
   <script src="/js/index.min.js"></script>
   <script src="./js/FileSaver.js"></script>
   <script src="./js/main.js"></script>

@@ -1,11 +1,9 @@
 // import * as XLSX from "xlsx";
 let isStart = false;
 // Select The Start Game Button
-document.querySelector(".control-buttons span").onclick = function () {
+document.querySelector("#submit").onclick = function () {
   // Prompt Window To Ask For Name
-  let yourName = prompt("What's Your Name ?");
-  let yourEmail = prompt("What's your email ?");
-  let yourNumber = prompt("What's your Number ?");
+  let yourName = document.querySelector(".name").value;
   // If Name Is Empty
   if (yourName == null || yourName == "") {
     // Set Name To Unknown
@@ -15,41 +13,13 @@ document.querySelector(".control-buttons span").onclick = function () {
   } else {
     // Set Name To Your Name
     document.querySelector(".name span").innerHTML = yourName;
-    // Update
-    // const workbook = XLSX.readFile("../CustomerInfo.xlsx");
-    // const worksheet = workbook.Sheets["Info"];
-    // const lastRow = XLSX.utils.decode_range(worksheet["!ref"]).e.r;
-    // const newData = [
-    //   [yourName, yourEmail, yourNumber], // Row 1
-    //   // Add more rows as needed
-    // ];
-    // const newRows = XLSX.utils.sheet_add_aoa(worksheet, newData, {
-    //   origin: -1,
-    // });
-    // worksheet["!ref"] = XLSX.utils.encode_range({
-    //   s: { c: 0, r: 0 },
-    //   e: {
-    //     c: XLSX.utils.decode_range(worksheet["!ref"]).e.c,
-    //     r: lastRow + newRows,
-    //   },
-    // });
-    // XLSX.writeFile(workbook, "../CustomerInfo.xlsx");
-
-    // const workbook = XLSX.utils.book_new();
-    // const worksheet = XLSX.utils.aoa_to_sheet([
-    //   ["Name", "Email", "Number"], // Header row
-    //   [yourName, yourEmail, yourNumber], // Data row
-    // ]);
-    // XLSX.utils.book_append_sheet(workbook, worksheet, "Info");
-    // const wbout = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
-    // saveAs(
-    //   new Blob([wbout], { type: "application/octet-stream" }),
-    //   "CustomerInfo.xlsx"
-    // );
   }
 
   // Remove Splash Screen
-  document.querySelector(".control-buttons").remove();
+  setTimeout(() => {
+    document.querySelector(".control-buttons").remove();
+  }, 1000);
+
   blocks.forEach((block, index) => {
     block.classList.add("is-flipped");
   });
@@ -138,14 +108,6 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
     secondBlock.classList.add("has-match");
 
     setTimeout(() => {
-      // firstBlock.classList.add("disappear");
-      // secondBlock.classList.add("disappear");
-      // firstBlock.classList.remove("has-match");
-      // secondBlock.classList.remove("has-match");
-      // firstBlock.style.transition = ".6s ease opacity,.6s ease transform";
-      // secondBlock.style.transition = ".6s ease opacity,.6s ease transform";
-      // firstBlock.classList.remove("has-match");
-      // secondBlock.classList.remove("has-match");
       firstBlock.style.opacity = 0;
       secondBlock.style.opacity = 0;
       firstBlock.style.transform = "scale(0)";
@@ -168,8 +130,8 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
           var confettiSettings = { target: "my-canvas" };
           var confetti = new ConfettiGenerator(confettiSettings);
           confetti.render();
-          let conf=document.querySelector('#my-canvas')
-          conf.classList.add("active")
+          let conf = document.querySelector("#my-canvas");
+          conf.classList.add("active");
         }
       }
     });
@@ -228,3 +190,13 @@ function SwitchBackgroundImage() {
 setInterval(() => {
   SwitchBackgroundImage();
 }, 2000);
+
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbw25P33yQ0nikZ-ydpVWQNu4TFNgr_yEPCDNk4DBOOP-UrXBpithIlUbm8dQqw84s3a/exec";
+const form = document.forms["submit-to-google-sheet"];
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  fetch(scriptURL, { method: "POST", body: new FormData(form) })
+    .then((response) => console.log("Success!", response))
+    .catch((error) => console.error("Error!", error.message));
+});
